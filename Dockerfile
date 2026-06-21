@@ -5,9 +5,13 @@ ENV PYTHONUNBUFFERED=1
 
 WORKDIR /app
 
+# Agregamos las herramientas y librerías de desarrollo para MariaDB/MySQL y PostgreSQL
 RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential \
     libpq-dev \
+    default-libmysqlclient-dev \
+    pkg-config \
+    gcc \
     && rm -rf /var/lib/apt/lists/*
 
 COPY requirements.txt /app/
